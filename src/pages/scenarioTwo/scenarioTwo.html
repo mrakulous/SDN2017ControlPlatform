@@ -1,0 +1,23 @@
+<!-- Switch - Blocking -->
+
+<ion-content>
+    <div class="space">
+        <h2>Scenario {{this.id}}</h2>
+        <p>{{this.description}}</p>
+
+        <p style="color: #ea6153;">Please fill enter the desired switch you would like to block.</p>
+
+        <!-- with name set -->
+        <ion-list no-lines>
+
+            <form [formGroup]="myForm">
+                <ion-item>
+                    <ion-label floating>Switch</ion-label>
+                    <ion-input formControlName="switch" type="number"></ion-input>
+                </ion-item>
+                <button (click)="submit()" ion-button type="submit" [disabled]="!myForm.valid">Submit</button>
+            </form>
+
+        </ion-list>
+    </div>
+</ion-content>

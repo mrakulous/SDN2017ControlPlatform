@@ -1,0 +1,14 @@
+<!-- Main Scenario Page Template -->
+
+<ion-content>
+    <div class="space">
+        <ion-list>
+            <ion-item *ngFor="let scenario of scenarios">
+                <ion-icon name="ios-git-network" item-left>
+                </ion-icon>
+                <button (click)="handleClick(scenario)" ion-button>Scenario {{scenario.id}}</button>
+                <p>{{scenario.description}}</p>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

@@ -1,0 +1,26 @@
+<!-- Route Blocking -->
+
+<ion-content>
+    <div class="space">
+        <h2>Scenario {{this.id}}</h2>
+        <p>{{this.description}}</p>
+
+        <!-- with name set -->
+        <ion-list no-lines>
+
+            <form [formGroup]="myForm">
+
+                <ion-item>
+                    <ion-label floating>Switch</ion-label>
+                    <ion-input formControlName="switch" type="number"></ion-input>
+                </ion-item>
+
+            </form>
+
+        </ion-list>
+
+        <br>
+
+        <p> Animation Placeholder </p>
+    </div>
+</ion-content>
