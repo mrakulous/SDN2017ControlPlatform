@@ -4,6 +4,8 @@
     <div class="space">
         <ion-list>
             <ion-item *ngFor="let scenario of scenarios">
+                <br>
+                <br>
                 <ion-icon name="ios-git-network" item-left>
                 </ion-icon>
                 <button (click)="handleClick(scenario)" ion-button>Scenario {{scenario.id}}</button>

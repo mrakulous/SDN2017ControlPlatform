@@ -19,11 +19,11 @@ export class ScenariosPage {
     constructor(public navCtrl: NavController) {
 
         this.scenarios = [
-            {id: '1', description: 'Host - Blocking'},
-            {id: '2', description: 'Switch - Blocking'},
-            {id: '3', description: 'Rerouting'},
-            {id: '4', description: 'Bandwidth Control'},
-            {id: '5', description: 'Network Virtualization'}
+            {id: '1', description: 'Host - Blocking', description_long: '', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
+            {id: '2', description: 'Switch - Blocking', description_long: '', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
+            {id: '3', description: 'Traffic Rerouting', description_long: '', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
+            {id: '4', description: 'Bandwidth Control', description_long: '', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
+            {id: '5', description: 'Network Virtualization', description_long: '', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true}
         ];
 
     }
@@ -34,28 +34,40 @@ export class ScenariosPage {
 
             this.navCtrl.push(ScenarioOnePage, {
                 id: scenario.id,
-                description: scenario.description
+                description: scenario.description,
+                description_long: scenario.description_long,
+                animation: scenario.animation,
+                hideAnimation: scenario.hideAnimation
             });
         }
 
         if(scenario.id == 2){
             this.navCtrl.push(ScenarioTwoPage, {
                 id: scenario.id,
-                description: scenario.description
+                description: scenario.description,
+                description_long: scenario.description_long,
+                animation: scenario.animation,
+                hideAnimation: scenario.hideAnimation
             });
         }
 
         if(scenario.id == 3){
             this.navCtrl.push(ScenarioThreePage, {
                 id: scenario.id,
-                description: scenario.description
+                description: scenario.description,
+                description_long: scenario.description_long,
+                animation: scenario.animation,
+                hideAnimation: scenario.hideAnimation
             });
         }
 
         if(scenario.id == 4){
             this.navCtrl.push(ScenarioFourPage, {
                 id: scenario.id,
-                description: scenario.description
+                description: scenario.description,
+                description_long: scenario.description_long,
+                animation: scenario.animation,
+                hideAnimation: scenario.hideAnimation
             });
         }
 

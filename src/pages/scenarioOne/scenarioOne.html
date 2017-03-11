@@ -4,7 +4,7 @@
     <div class="space">
 
         <h2>Scenario {{this.id}}</h2>
-        <p>{{this.description}}</p>
+        <p>{{this.description_long}}</p>
 
         <p style="color: #ea6153;">Please fill enter the desired host you would like to block.</p>
 
@@ -12,11 +12,12 @@
         <ion-list no-lines>
 
             <form [formGroup]="myForm" (ngSubmit)="submit()">
-                <ion-item>
+                <ion-item *ngFor="let scenario of scenarios">
                     <ion-label floating>Host</ion-label>
                     <ion-input formControlName="host" type="number"></ion-input>
                 </ion-item>
-                <button (click)="submit()" ion-button type="submit" [disabled]="!myForm.valid">Submit</button>
+                <button (click)="submit(scenario)" ion-button type="submit" [disabled]="!myForm.valid">Submit</button>
+                <iframe src="https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0'" hidden="false" width="640" height="360" frameborder="0"></iframe>
             </form>
         </ion-list>
     </div>

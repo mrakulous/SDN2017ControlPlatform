@@ -3,24 +3,17 @@
 <ion-content>
     <div class="space">
         <h2>Scenario {{this.id}}</h2>
-        <p>{{this.description}}</p>
-
+        <p>{{this.description_long}}</p>
         <!-- with name set -->
         <ion-list no-lines>
-
             <form [formGroup]="myForm">
-
                 <ion-item>
                     <ion-label floating>Bandwidth Limit</ion-label>
                     <ion-input formControlName="bandwidth" type="number"></ion-input>
                 </ion-item>
-
             </form>
-
         </ion-list>
-
         <br>
-
         <p> Animation Placeholder </p>
     </div>
 </ion-content>

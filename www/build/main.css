@@ -24421,6 +24421,9 @@ page-scenarioTwo .space {
 
 page-scenarios .space {
   height: 50%;
-  width: 50%;
   margin: 0 auto;
+}
+
+page-tabs .force-back-button .back-button {
+  display: inline-block;
 }
