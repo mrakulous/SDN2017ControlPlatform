@@ -19,8 +19,8 @@ export class ScenariosPage {
     constructor(public navCtrl: NavController) {
 
         this.scenarios = [
-            {id: '1', description: 'Host - Blocking', description_long: '', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
-            {id: '2', description: 'Switch - Blocking', description_long: '', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
+            {id: '1', description: 'Switch - Blocking', description_long: '', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
+            {id: '2', description: 'Host - Blocking', description_long: '', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
             {id: '3', description: 'Traffic Rerouting', description_long: '', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
             {id: '4', description: 'Bandwidth Control', description_long: '', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
             {id: '5', description: 'Network Virtualization', description_long: '', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true}

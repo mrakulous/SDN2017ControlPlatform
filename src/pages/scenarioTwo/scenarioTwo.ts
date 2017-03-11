@@ -16,7 +16,7 @@ export class ScenarioTwoPage {
     id: any;
     description: any;
 
-    switchNum: any;
+    hostNum: any;
     submitAttempted: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
@@ -25,7 +25,7 @@ export class ScenarioTwoPage {
       this.description = this.navParams.get('description');
 
       this.myForm = formBuilder.group({
-          switch: ['', NodeValidator.isValid]
+          host: ['', NodeValidator.isValid]
       });
 
   }
@@ -44,7 +44,7 @@ export class ScenarioTwoPage {
       } else if (!this.submitAttempted){
           this.submitAttempted = true;
 
-          console.log("Switch:" + userInput.switch);
+          console.log("Host:" + userInput.host);
 
 
           // ******************************
