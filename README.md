@@ -5,3 +5,5 @@ This is a simple GUI for the 2017 SDN project.  This application is used as a "c
 This app was made using the Ionic 2.
 
 ## Setting up environment
+
+See http://ionicframework.com/docs/v2/intro/installation/ for environment set-up instructions.
