@@ -17,8 +17,14 @@
                     <ion-input formControlName="switch" type="number"></ion-input>
                 </ion-item>
                 <button (click)="submit(scenario)" ion-button type="submit" [disabled]="!myForm.valid">Submit</button>
-                <iframe src="https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0'" hidden="false" width="640" height="360" frameborder="0"></iframe>
+                <!-- <iframe src="https://www.youtube.com/watch?v=Bz9_i5lPQlU&feature=youtu.be" width="640" height="360" frameborder="0"></iframe> -->
             </form>
         </ion-list>
+        <br>
+        <br>
+        <video style="width:500px;height:256px;" loop autoplay>
+          <source src="video/scenarioOne.mp4" type="video/mp4" >
+        </video>
+        <!-- <img loop="5" src="gif/scenOne.gif" style="width:500px;height:256px;"> -->
     </div>
 </ion-content>

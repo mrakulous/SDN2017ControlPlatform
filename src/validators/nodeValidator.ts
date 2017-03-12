@@ -19,14 +19,11 @@ export class NodeValidator {
            };
        }
 
-       if(control.value > 11 || control.value < 1){
+       if(control.value > 21 || control.value < 1){
            return {
                "node does not exist": true
            };
        }
-
        return null;
-
     }
-
 }

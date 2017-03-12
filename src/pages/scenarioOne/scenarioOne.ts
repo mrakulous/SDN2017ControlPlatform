@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NavController, NavParams } from 'ionic-angular';
-import { NodeValidator } from '../../validators/nodeValidator';
+import { SwitchValidator } from '../../validators/switchValidator';
 import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -17,9 +17,9 @@ export class ScenarioOnePage {
     //class variables
     myForm: FormGroup;
 
-    // id: any;
-    // description: any;
-    // description_long: any;
+    id: any;
+    description: any;
+    description_long: any;
     // animation: any;
     // hideAnimation: boolean = true;
 
@@ -31,10 +31,9 @@ export class ScenarioOnePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public http: Http) {
 
-    //   this.id = this.navParams.get('id');
-    //   this.description = this.navParams.get('description');
-    //   this.description_long = this.navParams.get('description_long');
-    //   this.animation = this.navParams.get('animation');
+      this.id = this.navParams.get('id');
+      this.description = this.navParams.get('description');
+      this.description_long = this.navParams.get('description_long');
 
       this.scenarios = [{
           id: this.navParams.get('id'),
@@ -45,13 +44,12 @@ export class ScenarioOnePage {
       }]
 
       this.myForm = formBuilder.group({
-          switch: ['', NodeValidator.isValid]
+          switch: ['', SwitchValidator.isValid]
       });
 
   }
 
   submit(scenario) {
-
 
       //Take user input
       let userInput = this.myForm.value;
