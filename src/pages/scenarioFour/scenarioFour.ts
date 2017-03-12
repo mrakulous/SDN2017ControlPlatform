@@ -25,17 +25,16 @@ export class ScenarioFourPage {
       this.description = this.navParams.get('description');
 
       this.myForm = formBuilder.group({
-          bandwidth: ['']
+          bandwidth: ['', NodeValidator.isValid]
       });
 
   }
 
-  submit() {
+  submit(scenario) {
       //curl http...
   }
 
   back() {
       this.navCtrl.pop();
   }
-
 }

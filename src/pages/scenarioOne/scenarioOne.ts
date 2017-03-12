@@ -41,7 +41,7 @@ export class ScenarioOnePage {
           description_long: this.navParams.get('description_long'),
           animation: this.navParams.get('animation'),
           hideAnimation: this.navParams.get('hideAnimation')
-      }]
+      }];
 
       this.myForm = formBuilder.group({
           switch: ['', SwitchValidator.isValid]
@@ -69,7 +69,6 @@ export class ScenarioOnePage {
         //   scenario.hideAnimation = false;
 
         console.log("Switch:" + userInput.switch);
-
 
         //   ******************************
         //   USED TO SEND THE POST REQUESTS
@@ -138,9 +137,78 @@ export class ScenarioOnePage {
   // *************************
 
   refresh(){
-    // reset flows in mininet
-  }
+      let userInput = this.myForm.value;
 
+      if(this.submitAttempted) {
+          let username = 'admin';
+          let password = 'admin';
+          let url = 'http://192.168.56.101:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:' + userInput.switch + '/flow-node-inventory:table/0'
+
+          this.submitAttempted = true;
+          //   scenario.hideAnimation = false;
+
+          console.log("Switch:" + userInput.switch);
+
+          //   ******************************
+          //   USED TO SEND THE POST REQUESTS
+          //   ******************************
+          let headers = new Headers({'Content-Type': 'application/json'});
+          headers.append("Authorization", "Basic " + btoa(username + ":" + password));
+          //let options = new RequestOptions({headers: headers});
+
+          let body = {
+            "flow-node-inventory:table": [
+                 {
+                     "id": 0,
+                     "flow": [
+                         {
+                             "id": "#UF$TABLE*0-36",
+                             "instructions": {
+                                 "instruction": [
+                                     {
+                                         "order": 1,
+                                         "apply-actions": {
+                                             "action": [
+                                                 {
+                                                     "order": 1,
+                                                     "drop-action": {}
+                                                 }
+                                             ]
+                                         }
+                                     }
+                                 ]
+                             },
+                             "match": {
+                                 "ethernet-match": {
+                                     "ethernet-type": {
+                                         "type": 2048
+                                     }
+                                 },
+                                 "ip-match": {
+                                     "ip-protocol": 6
+                                 },
+                                 "tcp-destination-port": 80
+                             },
+                             "table_id": 0,
+                             "cookie": 305419896
+                         }
+                     ]
+                 }
+             ]
+          };
+
+
+          this.http.put(url, body, {headers: headers})
+                .catch(this.handleError)
+                .subscribe(data => {
+                    console.log(data);
+                });
+
+            //*****************************************
+            //INSERT ALERT POP UP OF SUCCESSFUL REQUEST
+            //*****************************************
+        }
+  }
   back() {
       this.navCtrl.pop();
   }
