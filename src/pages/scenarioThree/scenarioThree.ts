@@ -59,13 +59,14 @@ export class ScenarioThreePage {
         //Opendaylight authorization
         let username = 'admin';
         let password = 'admin';
-        let url = 'http://192.168.56.101:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:' + userInput.switch + '/flow-node-inventory:table/0'
+        let url = 'http://192.168.56.101:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:' + userInput.switch + '/flow-node-inventory:table/0/flow/1'
+        let body: any;
 
         this.submitAttempted = true;
         //   scenario.hideAnimation = false;
 
         console.log("Switch:" + userInput.switch);
-
+        console.log("Host:" + userInput.host);
 
         //   ******************************
         //   USED TO SEND THE POST REQUESTS
@@ -74,46 +75,107 @@ export class ScenarioThreePage {
         headers.append("Authorization", "Basic " + btoa(username + ":" + password));
         //let options = new RequestOptions({headers: headers});
 
-        let body = {
-          "flow-node-inventory:table": [
-               {
-                   "id": 0,
-                   "flow": [
-                       {
-                           "id": "#UF$TABLE*0-36",
-                           "instructions": {
-                               "instruction": [
-                                   {
-                                       "order": 1,
-                                       "apply-actions": {
-                                           "action": [
-                                               {
-                                                   "order": 1,
-                                                   "drop-action": {}
-                                               }
-                                           ]
-                                       }
-                                   }
-                               ]
-                           },
-                           "match": {
-                               "ethernet-match": {
-                                   "ethernet-type": {
-                                       "type": 2048
-                                   }
-                               },
-                               "ip-match": {
-                                   "ip-protocol": 6
-                               },
-                               "tcp-destination-port": 80
-                           },
-                           "table_id": 0,
-                           "cookie": 305419896
-                       }
-                   ]
-               }
-           ]
-        };
+        if (userInput.host > 9) {
+            body = {
+                "flow-node-inventory:flow": [
+                  {
+                      "id": "1",
+                      "instructions": {
+                          "instruction": [
+                              {
+                                  "order": 1,
+                                  "apply-actions": {
+                                      "action": [
+                                          {
+                                              "order": 1,
+                                              "set-dl-dst-action": {
+                                                  "address": "00:00:00:00:00:10"
+                                              }
+                                          },
+                                          {
+                                              "order": 2,
+                                              "set-nw-dst-action": {
+                                                  "ipv4-address": "10.0.0.10/32"
+                                              }
+                                          },
+                                          {
+                                              "order": 3,
+                                              "output-action": {
+                                                  "output-node-connector": "6"
+                                              }
+                                          }
+                                      ]
+                                  }
+                              }
+                          ]
+                      },
+                      "match": {
+                          "ethernet-match": {
+                              "ethernet-type": {
+                                  "type": 2048
+                              }
+                          },
+                          "ipv4-destination": "10.0.0.0/29",
+                          "ip-match": {
+                              "ip-proto": "ipv4"
+                          }
+                      },
+                      "table_id": 0,
+                      "cookie": 53617458
+                  }
+              ]
+            };
+        } else {
+            body = {
+                "flow-node-inventory:flow": [
+                  {
+                      "id": "1",
+                      "instructions": {
+                          "instruction": [
+                              {
+                                  "order": 1,
+                                  "apply-actions": {
+                                      "action": [
+                                          {
+                                              "order": 1,
+                                              "set-dl-dst-action": {
+                                                  "address": "00:00:00:00:00:" + userInput.host + ""
+                                              }
+                                          },
+                                          {
+                                              "order": 2,
+                                              "set-nw-dst-action": {
+                                                  "ipv4-address": "10.0.0." + userInput.host + "/32"
+                                              }
+                                          },
+                                          {
+                                              "order": 3,
+                                              "output-action": {
+                                                  "output-node-connector": "6"
+                                              }
+                                          }
+                                      ]
+                                  }
+                              }
+                          ]
+                      },
+                      "match": {
+                          "ethernet-match": {
+                              "ethernet-type": {
+                                  "type": 2048
+                              }
+                          },
+                          "ipv4-destination": "10.0.0.0/29",
+                          "ip-match": {
+                              "ip-proto": "ipv4"
+                          }
+                      },
+                      "table_id": 0,
+                      "cookie": 53617458
+                  }
+              ]
+            };
+        }
 
 
         this.http.put(url, body, {headers: headers})
