@@ -56,6 +56,9 @@ export class ScenarioThreePage {
      //check if user has submitted already
       } else if (!this.submitAttempted){
 
+        console.log("Switch: " + userInput.switch);
+        console.log("Switch: " + userInput.host);
+
         //Opendaylight authorization
         let username = 'admin';
         let password = 'admin';
@@ -139,7 +142,7 @@ export class ScenarioThreePage {
                                           {
                                               "order": 1,
                                               "set-dl-dst-action": {
-                                                  "address": "00:00:00:00:00:" + userInput.host + ""
+                                                  "address": "00:00:00:00:00:0" + userInput.host + ""
                                               }
                                           },
                                           {
