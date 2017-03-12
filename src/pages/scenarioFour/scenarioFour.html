@@ -5,15 +5,17 @@
         <h2>Scenario {{this.id}}</h2>
         <p>{{this.description_long}}</p>
         <!-- with name set -->
-        <ion-list no-lines>
-            <form [formGroup]="myForm">
-                <ion-item>
-                    <ion-label floating>Bandwidth Limit</ion-label>
-                    <ion-input formControlName="bandwidth" type="number"></ion-input>
-                </ion-item>
-                <button (click)="submit(scenario)" ion-button type="submit" [disabled]="!myForm.valid">Submit</button>
-            </form>
-        </ion-list>
+        <ion-grid>
+            <ion-list no-lines>
+                <form [formGroup]="myForm">
+                    <ion-item>
+                        <ion-label floating>Bandwidth Limit</ion-label>
+                        <ion-input formControlName="bandwidth" type="number"></ion-input>
+                    </ion-item>
+                    <button (click)="submit(scenario)" ion-button type="submit" [disabled]="!myForm.valid">Submit</button>
+                </form>
+            </ion-list>
+        </ion-grid>
         <br>
         <br>
         <video style="width:500px;height:256px;" loop autoplay>

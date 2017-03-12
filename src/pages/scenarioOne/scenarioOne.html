@@ -9,17 +9,25 @@
         <p style="color: #ea6153;">Please enter the desired switch you would like to block.</p>
 
         <!-- with name set -->
-        <ion-list no-lines>
-
-            <form [formGroup]="myForm" (ngSubmit)="submit()">
-                <ion-item *ngFor="let scenario of scenarios">
-                    <ion-label floating>Switch</ion-label>
-                    <ion-input formControlName="switch" type="number"></ion-input>
-                </ion-item>
-                <button (click)="submit(scenario)" ion-button type="submit" [disabled]="!myForm.valid">Submit</button>
-                <!-- <iframe src="https://www.youtube.com/watch?v=Bz9_i5lPQlU&feature=youtu.be" width="640" height="360" frameborder="0"></iframe> -->
-            </form>
-        </ion-list>
+        <ion-grid>
+            <ion-list no-lines>
+                <form [formGroup]="myForm" (ngSubmit)="submit()">
+                    <ion-item *ngFor="let scenario of scenarios">
+                        <ion-label floating>Switch</ion-label>
+                        <ion-input formControlName="switch" type="number"></ion-input>
+                    </ion-item>
+                    <ion-row>
+                        <ion-col col-2>
+                            <button (click)="submit(scenario)" ion-button type="submit" [disabled]="!myForm.valid">Submit</button>
+                        </ion-col>
+                        <ion-col col-2>
+                            <button (click)="refresh()" color="danger" ion-button type="submit" [disabled]="!enableButton">Remove Flow</button>
+                        </ion-col>
+                    </ion-row>
+                </form>
+                <!-- <button (click)="refresh()" ion-button type="submit" [disabled]="!enableButton">Remove Flow</button> -->
+            </ion-list>
+        </ion-grid>
         <br>
         <br>
         <video style="width:500px;height:256px;" loop autoplay>

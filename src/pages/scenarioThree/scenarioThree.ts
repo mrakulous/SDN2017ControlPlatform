@@ -23,6 +23,17 @@ export class ScenarioThreePage {
 
     submitAttempted: boolean = false;
     scenarios: any;
+    enableButton: boolean=false;
+
+    //HTTP Request args
+
+    body: any;
+    url: any;
+    headers: any;
+
+    //OpenDaylight Authorization
+    username = 'admin';
+    password = 'admin';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public http: Http) {
 
@@ -56,16 +67,17 @@ export class ScenarioThreePage {
      //check if user has submitted already
       } else if (!this.submitAttempted){
 
+        this.submitAttempted = true;
+        this.enableButton = true;
+
         console.log("Switch: " + userInput.switch);
         console.log("Switch: " + userInput.host);
 
         //Opendaylight authorization
-        let username = 'admin';
-        let password = 'admin';
-        let url = 'http://192.168.56.101:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:' + userInput.switch + '/flow-node-inventory:table/0/flow/1'
-        let body: any;
+        this.url = 'http://192.168.56.101:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:' + userInput.switch + '/flow-node-inventory:table/0/flow/1';
 
-        this.submitAttempted = true;
+
+
         //   scenario.hideAnimation = false;
 
         console.log("Switch:" + userInput.switch);
@@ -74,12 +86,12 @@ export class ScenarioThreePage {
         //   ******************************
         //   USED TO SEND THE POST REQUESTS
         //   ******************************
-        let headers = new Headers({'Content-Type': 'application/json'});
-        headers.append("Authorization", "Basic " + btoa(username + ":" + password));
+        this.headers = new Headers({'Content-Type': 'application/json'});
+        this.headers.append("Authorization", "Basic " + btoa(this.username + ":" + this.password));
         //let options = new RequestOptions({headers: headers});
 
         if (userInput.host > 9) {
-            body = {
+            this.body = {
                 "flow-node-inventory:flow": [
                   {
                       "id": "1",
@@ -129,7 +141,7 @@ export class ScenarioThreePage {
               ]
             };
         } else {
-            body = {
+            this.body = {
                 "flow-node-inventory:flow": [
                   {
                       "id": "1",
@@ -181,7 +193,10 @@ export class ScenarioThreePage {
         }
 
 
-        this.http.put(url, body, {headers: headers})
+        this.http.delete(this.url, new RequestOptions ({
+            headers: this.headers,
+            body: this.body
+        }))
               .catch(this.handleError)
               .subscribe(data => {
                   console.log(data);

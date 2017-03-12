@@ -19,11 +19,11 @@ export class ScenariosPage {
     constructor(public navCtrl: NavController) {
 
         this.scenarios = [
-            {id: '1', description: 'Switch - Blocking', description_long: 'This feature will enable the user to block HTTP traffic by blocking port 80 on the selected switch.', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
-            {id: '2', description: 'Host - Blocking', description_long: 'This feature will enable the user to block HTTP traffic by blocking port 80 on the selected host.', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
-            {id: '3', description: 'Traffic Rerouting', description_long: 'This feature will enable the user to reroute traffic.', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
-            {id: '4', description: 'Bandwidth Control', description_long: 'This feature will enable users to control the bandwidth limit of a host.', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
-            {id: '5', description: 'Network Virtualization', description_long: '', animation: '', hideAnimation: true}
+            {id: '1', icon: 'md-remove-circle', description: 'Switch - Blocking', description_long: 'This feature will enable the user to block HTTP traffic by blocking port 80 on the selected switch.', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
+            {id: '2', icon: 'md-pause', description: 'Host - Blocking', description_long: 'This feature will enable the user to block HTTP traffic by blocking port 80 on the selected host.', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
+            {id: '3', icon: 'md-git-branch', description: 'Traffic Rerouting', description_long: 'This feature will enable the user to reroute traffic.', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
+            {id: '4', icon: 'ios-funnel', description: 'Bandwidth Control', description_long: 'This feature will enable users to control the bandwidth limit of a host.', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
+            {id: '5', icon: 'md-globe', description: 'Network Virtualization', description_long: '', animation: '', hideAnimation: true}
         ];
 
     }

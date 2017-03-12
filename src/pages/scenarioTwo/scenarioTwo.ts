@@ -23,6 +23,16 @@ export class ScenarioTwoPage {
     hostNum: any;
     submitAttempted: boolean = false;
 
+    //HTTP Request args
+    enableButton: boolean=false;
+    body: any;
+    url: any;
+    headers: any;
+
+    //OpenDaylight Authorization
+    username = 'admin';
+    password = 'admin';
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public http: Http) {
 
       this.id = this.navParams.get('id');
@@ -43,22 +53,19 @@ export class ScenarioTwoPage {
       //Check if userinput is valid
       //.valid works if form passes all validation checks within validator
       if (!this.myForm.valid) {
-          console.log("User input not valid"); //should be unreachable
+          console.log("User input not valid"); //should be unreachable due to form validator
 
      //check if user has submitted already
       } else if (!this.submitAttempted){
 
+          this.submitAttempted = true;
+          this.enableButton = true;
 
           let switchNum = this.getSwitch(userInput.host);
 
-          //Opendaylight basic HTTP authentication
-          let username = 'admin';
-          let password = 'admin';
-          let url = 'http://192.168.56.101:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:' + switchNum + '/flow-node-inventory:table/0'
-          let body: any;
+          this.url = 'http://192.168.56.101:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:' + switchNum + '/flow-node-inventory:table/0';
 
-          this.submitAttempted = true;
-          //   scenario.hideAnimation = false;
+
 
           console.log("Switch:" + switchNum);
           console.log("Host:" + userInput.host);
@@ -66,11 +73,11 @@ export class ScenarioTwoPage {
           //   ******************************
           //   USED TO SEND THE POST REQUESTS
           //   ******************************
-          let headers = new Headers({'Content-Type': 'application/json'});
-          headers.append("Authorization", "Basic " + btoa(username + ":" + password));
+          this.headers = new Headers({'Content-Type': 'application/json'});
+          this.headers.append("Authorization", "Basic " + btoa(this.username + ":" + this.password));
           //let options = new RequestOptions({headers: headers});
           if (userInput.host > 9) {
-              body = {
+              this.body = {
                     "flow-node-inventory:table": [
                         {
                             "id": 0,
@@ -112,8 +119,8 @@ export class ScenarioTwoPage {
                         }
                     ]
               };
-          } else {
-              body = {
+          } else {// if single digit host
+              this.body = {
                     "flow-node-inventory:table": [
                         {
                             "id": 0,
@@ -158,7 +165,7 @@ export class ScenarioTwoPage {
           }
 
 
-          this.http.put(url, body, {headers: headers})
+          this.http.put(this.url, this.body, {headers: this.headers})
                 .catch(this.handleError)
                 .subscribe(data => {
                     console.log(data);
@@ -167,6 +174,24 @@ export class ScenarioTwoPage {
             //INSERT ALERT POP UP OF SUCCESSFUL REQUEST
             //*****************************************
       }
+  }
+
+  refresh() {
+      let userInput = this.myForm.value;
+
+      if(this.submitAttempted) {
+          console.log("Switch:" + userInput.switch);
+
+          //Headers and body passed into options param of delete
+          this.http.delete(this.url, new RequestOptions({
+              headers: this.headers,
+              body: this.body
+          }))
+                .catch(this.handleError)
+                .subscribe(data => {
+                    console.log(data);
+                });
+        }
   }
 
   back() {

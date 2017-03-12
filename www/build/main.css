@@ -24392,6 +24392,10 @@ page-home .space {
   margin: 0 auto;
 }
 
+page-home .background {
+  background-image: url("http://video.wixstatic.com/video/11062b_35e9c1a919df41df8b95c20340739349/1080p/mp4/file.mp4");
+}
+
 page-scenarioFour .space {
   width: 50%;
   margin: 0 auto;
@@ -24422,6 +24426,10 @@ page-scenarioTwo .space {
 page-scenarios .space {
   height: 50%;
   margin: 0 auto;
+}
+
+page-scenarios .upSize {
+  font-size: 40px;
 }
 
 page-tabs .force-back-button .back-button {

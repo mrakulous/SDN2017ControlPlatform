@@ -8,16 +8,25 @@
         <p style="color: #ea6153;">Please enter the desired host you would like to block.</p>
 
         <!-- with name set -->
-        <ion-list no-lines>
+        <ion-grid>
+            <ion-list no-lines>
 
-            <form [formGroup]="myForm">
-                <ion-item>
-                    <ion-label floating>Host</ion-label>
-                    <ion-input formControlName="host" type="number"></ion-input>
-                </ion-item>
-                <button (click)="submit()" ion-button type="submit" [disabled]="!myForm.valid">Submit</button>
-            </form>
-        </ion-list>
+                <form [formGroup]="myForm">
+                    <ion-item>
+                        <ion-label floating>Host</ion-label>
+                        <ion-input formControlName="host" type="number"></ion-input>
+                    </ion-item>
+                    <ion-row>
+                        <ion-col col-2>
+                            <button (click)="submit()" ion-button type="submit" [disabled]="!myForm.valid">Submit</button>
+                        </ion-col>
+                        <ion-col col-2>
+                            <button (click)="refresh()" color="danger" ion-button type="submit" [disabled]="!enableButton">Remove Flow</button>
+                        </ion-col>
+                    </ion-row>
+                </form>
+            </ion-list>
+        </ion-grid>
         <video style="width:500px;height:256px;" loop autoplay>
           <source src="video/scenarioTwo.mp4" type="video/mp4" >
         </video>
