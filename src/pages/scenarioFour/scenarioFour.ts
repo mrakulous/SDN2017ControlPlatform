@@ -15,6 +15,7 @@ export class ScenarioFourPage {
 
     id: any;
     description: any;
+    description_long: any;
 
     bandwidth: any;
     submitAttempted: boolean = false;
@@ -23,6 +24,7 @@ export class ScenarioFourPage {
 
       this.id = this.navParams.get('id');
       this.description = this.navParams.get('description');
+      this.description_long = this.navParams.get('description_long');
 
       this.myForm = formBuilder.group({
           bandwidth: ['', NodeValidator.isValid]

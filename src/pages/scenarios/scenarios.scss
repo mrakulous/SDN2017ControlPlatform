@@ -1,10 +1,59 @@
-page-scenarios {
-    .space {
-        height: 50%;
-        margin: 0 auto;
-    }
+// page-scenarios {
+//     .space {
+//         height: 50%;
+//         margin: 0 auto;
+//     }
+//
+//     .upSize {
+//         font-size: 40px;
+//     }
+// }
 
-    .upSize {
-        font-size: 40px;
-    }
+/* The only rule that matters */
+#video-background {
+/*  making the video fullscreen  */
+  position: fixed;
+  right: 100;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+}
+
+/* These just style the content */
+body {
+/*  just a fancy border  */
+  position: fixed;
+  top: 100;
+  left: 0;
+  right: 0;
+  bottom: 1000;
+  color: #ffff;
+}
+
+h1 {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  font-size: 60px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: #fff;
+  font-family: "Lucida Grande", sans-serif;
+  text-align: center;
+}
+
+h1 span {
+  font-family: "Lucida Grande";
+  letter-spacing: 3px;
+  font-weight: 100;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 4px;
+}
+
+h1 span a {
+  color: #fff;
 }

@@ -13,6 +13,7 @@ export class TabsPage {
   tab1Root: any = HomePage;
   tab2Root: any = TopologyPage;
   tab3Root: any = ScenariosPage;
+  // tab4Root: any = MininetPage;
 
   constructor() {
 

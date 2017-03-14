@@ -1,19 +1,36 @@
 <!-- Main Scenario Page Template -->
+<ion-header>
+  <ion-navbar>
+    <ion-title align="center">Scenarios</ion-title>
+    <ion-buttons end>
+        <button ion-button>Logout</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
 
 <ion-content>
     <div class="space">
         <!-- <ion-list no-lines> -->
                 <ion-grid>
                     <!-- <ion-row> -->
-                        <ion-col col-2>
+                        <ion-row>
                             <ion-item *ngFor="let scenario of scenarios">
-                                <ion-icon [name]="scenario.icon" item-left class="upSize"></ion-icon>
-                                <button (click)="handleClick(scenario)" ion-button full>Scenario {{scenario.id}}</button>
-                                <p>{{scenario.description}}</p>
+                                <!-- <ion-col col-2> -->
+                                    <ion-icon [name]="scenario.icon" item-left class="upSize"></ion-icon>
+                                    <button (click)="handleClick(scenario)" ion-button [disabled]="scenario.disableButton">Scenario {{scenario.id}}</button>
+                                    <p>{{scenario.description}}</p>
+                                <!-- </ion-col> -->
                             </ion-item>
-                        </ion-col>
+                        </ion-row>
                     <!-- </ion-row> -->
                 </ion-grid>
         <!-- </ion-list> -->
     </div>
 </ion-content>
+
+<ion-footer no-border>
+    <ul style="list-style-type:none">
+        <li>&copy; <span>2017 SDN Home-Controlled Network</span>, Inc.</li>
+        <li><a href="http://www.sdn2017.com/" target="_blank">More info</a></li>
+    </ul>
+</ion-footer>

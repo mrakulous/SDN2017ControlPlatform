@@ -5,7 +5,74 @@ page-home {
         margin: 0 auto;
     }
 
-    .background {
-        background-image: url('http://video.wixstatic.com/video/11062b_35e9c1a919df41df8b95c20340739349/1080p/mp4/file.mp4');
-    }
+}
+
+
+/* The only rule that matters */
+#video-background {
+/*  making the video fullscreen  */
+  position: fixed;
+  right: 100;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 100;
+}
+
+/* These just style the content */
+body {
+/*  just a fancy border  */
+  position: absolute;
+  top: 1000;
+  left: 1000;
+  right: 1000;
+  bottom: 1000;
+  color: #ffff;
+}
+
+h1 {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  font-size: 70px;
+  text-shadow: 0 0 11px #FFF;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: #fff;
+  font-family: "Lucida Grande", sans-serif;
+  text-align: center;
+}
+
+h1 span {
+  font-family: "Lucida Grande";
+  letter-spacing: 3px;
+  font-weight: 100;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 4px;
+}
+h2 {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  font-size: 60px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-shadow: 0 0 11px #FFF;
+  color: #fff;
+  font-family: "Lucida Grande", sans-serif;
+  text-align: center;
+}
+
+img {
+    border: 0px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
+
+h1 span a {
+  color: #fff;
 }

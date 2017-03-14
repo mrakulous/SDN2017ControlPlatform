@@ -19,11 +19,11 @@ export class ScenariosPage {
     constructor(public navCtrl: NavController) {
 
         this.scenarios = [
-            {id: '1', icon: 'md-remove-circle', description: 'Switch - Blocking', description_long: 'This feature will enable the user to block HTTP traffic by blocking port 80 on the selected switch.', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
-            {id: '2', icon: 'md-pause', description: 'Host - Blocking', description_long: 'This feature will enable the user to block HTTP traffic by blocking port 80 on the selected host.', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
-            {id: '3', icon: 'md-git-branch', description: 'Traffic Rerouting', description_long: 'This feature will enable the user to reroute traffic.', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
-            {id: '4', icon: 'ios-funnel', description: 'Bandwidth Control', description_long: 'This feature will enable users to control the bandwidth limit of a host.', animation: 'https://publish.animatron.io/1159e456740f7574676a6143?w=640&amp;h=360&amp;a=1&amp;r=0&amp;c=0', hideAnimation: true},
-            {id: '5', icon: 'md-globe', description: 'Network Virtualization', description_long: '', animation: '', hideAnimation: true}
+            {id: '1', icon: 'md-remove-circle', description: 'Switch - Blocking', description_long: 'This feature will enable the user to block HTTP traffic by blocking port 80 on the selected switch.', disableButton: false},
+            {id: '2', icon: 'md-pause', description: 'Host - Blocking', description_long: 'This feature will enable the user to block HTTP traffic by blocking port 80 on the selected host.', disableButton: false},
+            {id: '3', icon: 'md-git-branch', description: 'Traffic Rerouting', description_long: 'This feature will enable the user to reroute traffic.', disableButton: false},
+            {id: '4', icon: 'ios-funnel', description: 'Bandwidth Control', description_long: 'This feature will enable users to control the bandwidth limit of a host.', disableButton: false},
+            {id: '5', icon: 'md-globe', description: 'Network Virtualization', description_long: '', disableButton: true}
         ];
 
     }
@@ -35,9 +35,7 @@ export class ScenariosPage {
             this.navCtrl.push(ScenarioOnePage, {
                 id: scenario.id,
                 description: scenario.description,
-                description_long: scenario.description_long,
-                animation: scenario.animation,
-                hideAnimation: scenario.hideAnimation
+                description_long: scenario.description_long
             });
         }
 
@@ -45,9 +43,7 @@ export class ScenariosPage {
             this.navCtrl.push(ScenarioTwoPage, {
                 id: scenario.id,
                 description: scenario.description,
-                description_long: scenario.description_long,
-                animation: scenario.animation,
-                hideAnimation: scenario.hideAnimation
+                description_long: scenario.description_long
             });
         }
 
@@ -55,9 +51,7 @@ export class ScenariosPage {
             this.navCtrl.push(ScenarioThreePage, {
                 id: scenario.id,
                 description: scenario.description,
-                description_long: scenario.description_long,
-                animation: scenario.animation,
-                hideAnimation: scenario.hideAnimation
+                description_long: scenario.description_long
             });
         }
 
@@ -65,9 +59,7 @@ export class ScenariosPage {
             this.navCtrl.push(ScenarioFourPage, {
                 id: scenario.id,
                 description: scenario.description,
-                description_long: scenario.description_long,
-                animation: scenario.animation,
-                hideAnimation: scenario.hideAnimation
+                description_long: scenario.description_long
             });
         }
 

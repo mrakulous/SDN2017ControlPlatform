@@ -208,6 +208,24 @@ export class ScenarioThreePage {
       }
   }
 
+  refresh() {
+      let userInput = this.myForm.value;
+
+      if(this.submitAttempted) {
+          console.log("Switch:" + userInput.switch);
+
+          //Headers and body passed into options param of delete
+          this.http.delete(this.url, new RequestOptions({
+              headers: this.headers,
+              body: this.body
+          }))
+                .catch(this.handleError)
+                .subscribe(data => {
+                    console.log(data);
+                });
+        }
+  }
+
   back() {
       this.navCtrl.pop();
   }

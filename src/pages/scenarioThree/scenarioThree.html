@@ -1,9 +1,18 @@
 <!-- Route Blocking -->
+<ion-header>
+    <ion-navbar>
+        <ion-title align="center">Traffic Rerouting</ion-title>
+        <ion-buttons end>
+            <button ion-button>Logout</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
 
 <ion-content>
     <div class="space">
         <h2>Scenario {{this.id}}</h2>
         <p>{{this.description_long}}</p>
+        <p style="color: #ea6153;">Please enter the desired switch and corresponding host.</p>
 
         <!-- with name set -->
         <ion-grid>
@@ -35,3 +44,10 @@
         </video>
     </div>
 </ion-content>
+
+<ion-footer no-border>
+    <ul style="list-style-type:none">
+        <li>&copy; <span>2017 SDN Home-Controlled Network</span>, Inc.</li>
+        <li><a href="http://www.sdn2017.com/" target="_blank">More info</a></li>
+    </ul>
+</ion-footer>
